@@ -18,6 +18,10 @@ struct Cli {
     /// Run the generated program without asking for confirmation
     #[clap(short = 'y', long)]
     force: bool,
+
+    // Only print the generated program
+    #[clap(short = 'n', long)]
+    print_only: bool,
 }
 
 fn main() {
@@ -85,6 +89,8 @@ fn main() {
 
     let should_run = if cli.force {
         true
+    } else if cli.print_only {
+        false
     } else {
         Question::new(
             ">> Run the generated program? [Y/n]"
