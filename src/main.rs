@@ -19,7 +19,7 @@ struct Cli {
     #[clap(short = 'y', long)]
     force: bool,
 
-    // Only print the generated program
+    /// Only print the generated program without running it
     #[clap(short = 'n', long)]
     print_only: bool,
 }
